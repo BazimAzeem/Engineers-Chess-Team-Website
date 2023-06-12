@@ -1,0 +1,892 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+This is an example weekly progress report document that team members can use to report their individual progress 
+of their ECE477 senior design projects. Weekly progress reports are expected to follow the general guidelines
+presented in the "Progress Report Policy" document, posted on Brightspace.  
+
+Please create 4 copies of this example, renaming each copy to <PurdueID>.html, where <PurdueID> corresponds to
+the Purdue ITAP Career Account ID given by Purdue to each individual team member. If you have any questions,
+contact course staff.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--Reconfigurable base tag; used to modify the site root location for root-relative links-->
+<!--<base href="https://engineering.purdue.edu/ece477/StudentWebTemplate/" />-->
+    <base href="https://engineering.purdue.edu/477grp8/" /> <!-- Replace the N with your team number-->
+
+<!--Content-->
+<title>ECE477 Progress Report - Bazim Azeem</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="George Hadley">
+<meta name = "format-detection" content = "telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--CSS-->
+<link rel="stylesheet" href="css/default.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/content.css">
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+<body>
+<div id="wrapper_site">
+    <div id="wrapper_page">
+	<!-- Instantiate global site header.-->
+	<div id="header"></div>
+		<!-- Instantiate site global navigation bar.-->
+		<div id="menu"></div>
+	
+		<!-- Instantiate a page banner image. Page banner images should be 1100x350px and should be located within the local
+			img folder located at this directory level. -->
+		<div id="banner">
+			<img src="Files/img/BannerImgExample.jpg"></img>
+		</div>
+	
+		<!-- Instantiate "tools" needed for a page. Tools are premade functional blocks that can be used to build a page,
+			and include things such as a file lister (for listing out homework assignments or tutorials)
+		-->
+		<div id="content">
+            <h2>Progress Report for Bazim Azeem</h2>
+            <h4>Week 13:</h4>
+            <b>Date:</b> 04/14/2023<br>
+            <b>Total hours:</b> 12<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Adding More Feedback For Users</b><br>
+            My first contribution this week was adding more feedback so that the user has a better idea of the current state of the game. This included feedback when 
+            booting the Jetson Nano, recording a move (5 second countdown), computing the move, and when the move is invalid (not a possible chess move). In addition 
+            I had to add <code>RECORDING</code> and <code>BOOTING</code> states to the game state enum.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_13/booting.jpg" class="aligncenter" width="400em"></img>
+                <img src="Team/progress/img/azeem/week_13/recording_4.jpg" class="aligncenter" width="400em"></img>
+                <img src="Team/progress/img/azeem/week_13/computing.jpg" class="aligncenter" width="400em"></img>
+                <img src="Team/progress/img/azeem/week_13/invalid.jpg" class="aligncenter" width="400em"></img><br>
+                <figcaption>
+                    Figure 16. Additional types of feedback.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Adding Paused/Restart Game State</b><br>
+            My main contribution this week was implemnting a <i>Paused/Restart Game</i> state. This is so that the players can pause the timers when the game is underway
+            or restart the game at any point. This was implemented by sending a <i>Restart</i> code to the Jetson Nano. The Jetson Nano listens to the UART port at all
+            times other than booting and recording. If a <i>Restart</i> code is received, it executes the <code>game.py</code> script again. The
+            <i>Paused/Restart Game</i> menu is brought up by pressing the <i>Timer up</i> button at any point during the game other than booting or recording. Then,
+            the user can press <i>Confirm</i> to send the <i>Restart</i> code or press <i>Undo</i> to return to the previous game state.<br>
+            <br>
+            Initially, I did a lot of research on multi-threading, so that I could have a thread listening to the UART port at all times, even whilst recording. This
+            would effectively serve as an interrupt of the main game code. However, I decided that this would not be worth the engineering effort required.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_13/paused.jpg" class="aligncenter" width="400em"></img><br>
+                <figcaption>
+                    Figure 17. Paused/Restart Game menu.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Helping in Final Assembly of Packaging</b><br>
+            I spend about an hour helping Tyson and Andy with gluing the buttons and feedback display pieces onto the rest of the packaging. Furthermore, I assisted in
+            placing the rubber feet on the bottom of the packaging, as well as the velcro to keep the top in place.<br>
+            <br>
+            <b>System Testing of Final Prototype</b><br>
+            Once all the software and hardware aspects of the protoype were complete, I played a few complete games of chess with my teammates to test the usability of
+            the final product. We found that everything worked as expected. There were, however, some words that were being misheard (e.g. "ago" instead of "echo"). 
+            These words were added to the speech recognition software so they get automatically translated into the desired word. In addition, I tested the power cycle
+            behavior of the system.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_13/diagonal_perspective.jpg" class="aligncenter" width="500em"></img><br>
+                <figcaption>
+                    Figure 18. Completed Engineer's Chess!
+                </figcaption>
+            </figure>
+            <br>
+            <b>Other Minor Contributions</b><br>
+            I did some final refactoring of the code. This involved converting interrupts to be <code>switch (gameState)</code> blocks, deciding the functionality of buttons
+            and timer interrupts depending on the current game state. I also spent a considereable amount of time working on the User Manual.
+
+            <br><br>
+
+            <h4>Week 12:</h4>
+            <b>Date:</b> 04/07/2023<br>
+            <b>Total hours:</b> 11<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>STM32 Workbench Error</b><br>
+            I spent a few hours on Thursday trying to debug an error on the STM32 Workbench which was not allowing me to program the microcontroller. I eventually gave up
+            after trying everything that came to mind and scouring the internet for similar issues. I also consulted the notes from ECE 36200. When I tried again on Friday,
+            it miraculously began working again. I still have no idea what happened.<br>
+            <br>
+            <b>Refactoring Game State and Interrupt Code</b><br>
+            So far, our main file has been somewhat disorganized as we were using a combination of boolean flags and other variabes to decide the current game state, and
+            thus the functions of the buttons and the timer and UART interrupts. This has been revamped to use 
+            <code>enum GameState {SETUP, AWAIT_MOVE, GOT_MOVE, GAME_OVER}</code>. As a result, each interrupt has been modified to be an <code>if else if</code> block
+            that decides the functionality based on the current game state. This makes it easier to add more game states in the future.<br>
+            <br>
+            <b>Revising UART Protocol for Jetson Nano and Microcontroller Communication</b><br>
+            I revised the UART protocol to incorporate sending a packet to the Jetson Nano when the timers run out as well as sending a packet to the microcontroller
+            containing any feedback to be displayed. There can be 64 distinct types of feedback accounted for by the 6 bits after the <i>Type</i> field. The protocol
+            may further evolve in the future as needed.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_12/protocol.PNG" class="aligncenter" width="700em"></img><br>
+                <figcaption>
+                    Figure 14. Revised Jetson Nano and microcontroller UART protocol for time out and feedback.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Implementing Sending Feedback from Jetson Nano to Micorcontroller</b><br>
+            My main contribution this week was implementing the sending of feedback from the Jetson Nano to the micorcontroller. The reason for doing this is because the
+            game logic is handled in the Jetson Nano while the displays are driven by the microcontroller. So, this data must be sent so that the user may get feedback on
+            the game.<br>
+            <br>
+            The first step in accomplishing this was to designate a 6 bit feedback code for each type of feedback that can be sent. These are stored in
+            <code>FeedbackCode</code>enums on both the Jetson Nano and the microcontroller. Some entries are <code>BLACKS_TURN=9</code> and 
+            <code>MATE_WHITE_WINS=0</code>.<br>
+            <br>
+            Next, I implemented the following functions:<br>
+            <ul>
+                <li>
+                    <code>def send_to_micro(feedback)</code>:<br>
+                    This function runs on the Jetson Nano. It writes a packet to the UART port which contains the <i>Type</i> field for feedback followed by the 6 bit
+                    feedback code.
+                </li>
+                <li>
+                    <code>void write_feedback_from_code(FeedbackCode code, char *align_vertical, char *align_horizontal)</code>:<br>
+                    This function runs on the microcontroller. It is essentially a long <code>if else if</code> block which, for each feedback code, writes the appropriate
+                    message to the feedback displays. This function was placed in the UART interrupt.
+                </li>
+            </ul>
+            <figure>
+                <code>
+                    <img src="Team/progress/img/azeem/week_12/set_timers.jpg" class="aligncenter" width="230em"></img>
+                    SET_TIMERS                          <br>
+                    Waiting for CFM...                  <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    . . . . . . . k                     <br>
+                    . . . . Q . . .                     <br>
+                    . . . . . K . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    <br>
+                    <img src="Team/progress/img/azeem/week_12/whites_turn.jpg" class="aligncenter" width="230em"></img>
+                    WHITES_TURN                         <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: e7a7                    <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    . . . . . . . k                     <br>
+                    Q . . . . . . .                     <br>
+                    . . . . . K . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    <br>
+                    <img src="Team/progress/img/azeem/week_12/blacks_turn.jpg" class="aligncenter" width="230em"></img>
+                    BLACKS_TURN                         <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: h8g8                    <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: a1a2                    <br>
+                    <img src="Team/progress/img/azeem/week_12/illegal.jpg" class="aligncenter" width="230em"></img>
+                    ILLEGAL_MOVE                        <br>
+                    Enter move:                         <br>
+                </code><br>
+                <figcaption>
+                    Figure 15. Short demonstration of feedback sent to microcontroller.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Other Minor Contributions</b><br>
+            There was an issue where the <i>Record</i> button would not register. It turned out that the wrong GPIO port was being configured. There was also some more
+            refactoring that was done to make the code more readable and maintainable.<br>
+
+            <br><br>
+
+            <h4>Week 11:</h4>
+            <b>Date:</b> 03/31/2023<br>
+            <b>Total hours:</b> 13<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Supporting Different Starting Board Positions</b><br>
+            My main contribution this week was supporting different starting board positions in the chess game. The motivation for doing so is for testing purposes. For
+            example, if we want to test how our system behaves for pawn promotion, we would need to play a long game to get the pawn to the end of the board, wasting a
+            lot of time. The ability to start the board in a desired position resolves this issue. Accomplishing this involved two major steps: initializing the
+            board to the desired state in the Jetson Nano and sending that board to the microcontroller via UART.<br>
+            <br>
+            To complete the first step, I spent some time using <a href="https://www.chess.com/analysis?tab=analysis">Chess.com's Analysis tool</a>. This allowed me to 
+            play against myself in an effort to create different starting board position. The position can be represented using a 
+            <a href="https://www.chess.com/terms/fen-chess">FEN</a> string, such as <code>"2q5/3P2k1/8/4Pp2/8/8/2Q5/R3K2R w KQ f6 0 45"</code>. This can then be used to 
+            initialize the chess board stored in the game logic using the python-chess method <code>board.set_fen(FEN_str)</code>. Thus far, I have made the two
+            positions in the figure below. I will make more as necessary in the future.<br>
+            <br>
+            <figure>
+                <section class="figure-imgs">
+                    <img src="Team/progress/img/azeem/week_11/special_board.png" class="aligncenter" width="300em"></img>
+                    <img src="Team/progress/img/azeem/week_11/mate_board.png" class="aligncenter" width="300em"></img><br>
+                </section>
+                <figcaption>
+                    Figure 11. Left: Starting board position with en passant, castling both sides, promotion, and promotion with capture. Right: Starting board position
+                    with checkmate and stalemate.
+                </figcaption>
+            </figure>
+            <br>
+            For the second step, I had to create the following functions:<br>
+            <ul>
+                <li>
+                    <code>def send_to_micro(board)</code>:<br>
+                    This function runs on the Jetson Nano. It creates a string representation of the current board and writes each character in order from left to right,
+                    top to bottom, to the UART port. The string representation is the same as which is shown in the below figure.
+                </li>
+                <li>
+                    <code>void add_piece_to_board(int numPiece, char piece)</code>:<br>
+                    This function runs on the microcontroller. It adds the received piece to the <code>board[8][8]</code> array stored in the micorcontroller. The 
+                    <code>numPiece</code> integer stores the index of the current piece (0 to 63). This function was added to the body of the UART interrupt handler
+                    in the microcontroller and executes if the microcontroller game is in the initialization state.
+                </li>
+            </ul>
+            The figure below illustrates that the board was sent from the Jetson Nano and received by the microcontroller.<br>
+            <br>
+            <figure>
+                <code>
+                    <img src="Team/progress/img/azeem/week_11/board_0.jpg" class="aligncenter" width="295em"></img>
+                    . . q . . . . .                     <br>
+                    . . . P . . k .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . P p . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    R . . . K . . R                     <br>
+                    <br>
+                    White's turn                        <br>
+                    Waiting for REC...                  <br>
+                </code><br>
+                <figcaption>
+                    Figure 12. Custom starting board displayed on both the Jetson Nano and microcontroller LED Matrix.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Supporting Special Moves on Microcontroller</b><br>
+            My next major contribution was the support for the special moves of en passant, castling, and pawn promotion on the microcontroller. As Tyson and I may have 
+            mentioned in the past, we handle all the game logic in the Jetson Nano. The game logic stores the board, checks for legal moves, and has an understanding of
+            the current position and piece interactions. The microcontroller stores a barebones representation of the board which is solely used for displaying to the 
+            LED matrix.<br>
+            <br>
+            When a move is made in the game logic, the Jetson Nano sends the move to the microcontroller, which is used in a
+            <code>move_piece(int sX, int sY, int dX, int dY)</code> function to simply overwrite the piece in the
+            destination square with the piece in the starting square and set the starting square to have no piece. This, however, cannot capture special moves, where
+            multiple pieces (king and rook) move, a pawn captures another pawn that is not in the destination square, or a pawn changes into another piece. Therefore, 
+            some logic must be added to the <code>move_piece()</code> function to perform these moves. The following <code>if else if</code> block was used:<br>
+            <ul>
+                <li>
+                    <code>if (board[sRow][sCol].piece == PAWN && (sRow == 1 || sRow == 6))</code>: Checks for pawn promotion.
+                </li>
+                <li>
+                    <code>else if (board[sRow][sCol].piece == PAWN && sCol != dCol && board[dRow][dCol].piece == NONE)</code>: Checks for en passant.
+                </li>
+                <li>
+                    <code>else if (board[sRow][sCol].piece == KING && abs(sCol-dCol) > 1)</code>: Checks for castling.
+                </li>
+            </ul>
+            <figure>
+                <code>
+                    <img src="Team/progress/img/azeem/week_11/board_0.jpg" class="aligncenter" width="295em"></img>
+                    . . q . . . . .                     <br>
+                    . . . P . . k .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . P p . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    R . . . K . . R                     <br>
+                    <br>
+                    White's turn                        <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: exf6+                   <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    <img src="Team/progress/img/azeem/week_11/board_1.jpg" class="aligncenter" width="295em"></img>
+                    . . q . . . . .                     <br>
+                    . . . P . . k .                     <br>
+                    . . . . . P . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    R . . . K . . R                     <br>
+                    <br>
+                    Black's turn                        <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: Kg8                     <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    <img src="Team/progress/img/azeem/week_11/board_2.jpg" class="aligncenter" width="295em"></img>
+                    . . q . . . k .                     <br>
+                    . . . P . . . .                     <br>
+                    . . . . . P . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    R . . . K . . R                     <br>
+                    <br>
+                    White's turn                        <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: O-O-O                   <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    <img src="Team/progress/img/azeem/week_11/board_3.jpg" class="aligncenter" width="295em"></img>
+                    . . q . . . k .                     <br>
+                    . . . P . . . .                     <br>
+                    . . . . . P . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    . . K R . . . R                     <br>
+                    <br>
+                    Black's turn                        <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: Kf8                     <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    <img src="Team/progress/img/azeem/week_11/board_4.jpg" class="aligncenter" width="295em"></img>
+                    . . q . . k . .                     <br>
+                    . . . P . . . .                     <br>
+                    . . . . . P . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    . . K R . . . R                     <br>
+                    <br>     
+                    White's turn                        <br>
+                    Waiting for REC...                  <br>
+                    Got: (REC, 0, 0)                    <br>
+                    Enter move: dxc8=q                  <br>
+                    Waiting for CFM/REC...              <br>
+                    Got: (CFM, 0, 0)                    <br>
+                    <img src="Team/progress/img/azeem/week_11/board_5.jpg" class="aligncenter" width="295em"></img>
+                    . . Q . . k . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . P . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . Q . . . . .                     <br>
+                    . . K R . . . R                     <br>
+                    <br>
+                    Black's turn                        <br>
+                    Waiting for REC...                  <br>
+                </code><br>
+                <figcaption>
+                    Figure 13. Demonstration of en passant, castling queenside, and promotion with capture on both the Jetson Nano and microcontroller LED Matrix.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Other Minor Contributions</b><br>
+            I did some more refactoring on top of what I did last week. Mainly, I replaced many similar constants with enums. Furthermore, I modified the color
+            scheme of the LED matrix, as shown in the above figures.<br>
+
+            <br><br>
+
+            <h4>Spring Break and Week 10:</h4>
+            <b>Date:</b> 03/24/2023<br>
+            <b>Total hours:</b> 13<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Extending Prototype Circuit</b><br>
+            During Spring Break, I spent some time extending my prototype circuit to include the <i>Confirm</i>, <i>Record</i>, and <i>Timer Up/Down</i> 
+            buttons. This is so I can test some of the communication between the microcontroller and Jetson Nano when Tyson's circuit is being used by 
+            someone else.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_10/extended_circuit.jpg" class="aligncenter" width="600em"></img><br>
+                <figcaption>
+                    Figure 9. Extended prototype circuit with added buttons.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Migrating Code into Separate Files and Refactoring</b><br>
+            During our software development thus far, we had been writing all our code in <code>main.c</code>. This is obviously a bad pratice. Therefore, I
+            spent a few hours dividing the code into a few different files: <code>feedback-display.c</code>, <code>board.c</code>, and <code>uart-jetson.c</code>,
+            along with their associated header files. Investing this time now will make our coding process much easier in the future. I also refactored some 
+            variable names and function names and added comments so that the code is more readable. Their is still some code left to be migrated, which I will
+            complete next week.<br>
+            <br>
+            <b>Incorporating Jetson Nano and Microcontroller Communication in Game Logic</b><br>
+            This is a continuation of the work from the previous progress report. The major functions I wrote to do this are as follows:<br>
+            <ul>
+                <li>
+                    <code>def recv_from_micro()</code>:<br>
+                    This function was being prototyped on the Jetson Nano last time. Now it successfully reads the UART port on the Jetson Nano to receive a 
+                    packet. This is then decoded, according to our protocol made by Jack, and returned.
+                </li>
+                <li>
+                    <code>void send_confirm()</code>:<br>
+                    This function runs on the microcontroller. It sends a byte, with the <i>Type</i> field set to <i>Confirm (01)</i>, using UART to the Jetson
+                    Nano. This is triggered when  pressing the <i>Confirm</i> button.
+                </li>
+                <li>
+                    <code>void send_record()</code>:<br>
+                    This function runs on the microcontroller. It sends a byte, with the <i>Type</i> field set to <i>Record (00)</i>, using UART to the Jetson
+                    Nano. This is triggered when  pressing the <i>Record</i> button.
+                </li>
+            </ul>
+            The below figure illustrates the extended <i>Confirm</i> and <i>(Re)Record</i> functionality, which receives packets from the microcontroller. The
+            received packets are printed for debugging purposes. The first number indicates the <i>Type</i> field.<br>
+            <br>
+            <figure>
+                <code>
+                    r n b q k b n r                     <br>
+                    p p p p p p p p                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    P P P P P P P P                     <br>
+                    R N B Q K B N R                     <br>
+                    <br>
+                    White's turn                        <br>
+                    Waiting for Record...               <br> 
+                    Got: (0, 0, 0)                      <br>
+                    Enter move: e4                      <br>
+                    Waiting for Confirm/Record...       <br>
+                    Got: (0, 0, 0)                      <br>
+                    Enter move: d4                      <br>
+                    Waiting for Confirm/Record...       <br>
+                    Got: (1, 0, 0)                      <br>
+                    r n b q k b n r                     <br>
+                    p p p p p p p p                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . P . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    P P P . P P P P                     <br>
+                    R N B Q K B N R                     <br>
+                    <br>
+                    Black's turn                        <br>
+                    Waiting for Record...               <br> 
+                </code><br>
+                <figcaption>
+                    Figure 10. Console output of the chess game logic demostrating the more complete Confirm and Record functionality.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Other Minor Contributions</b><br>
+            I changed the formatting of the move on the feedback displays so that it displayed the files as letters rather than numbers. This involved writing
+            the following function:<br>
+            <ul>
+                <li>
+                    <code>void write_move_to_feedback_display(int sX, int sY, int dX, int dY, char *align_vertical, char *align_horizontal)</code>:<br>
+                    This function formats the move as <code>%c%d to %c%d</code> where the characters are the source and destination files and the integers
+                    are the source and destination ranks. This is written to the feedback displays using the <code>write_to_feedback_display()</code>
+                    function from before.
+                </li>
+            </ul>
+            In addition, I tuned the refresh rate (timer interrupt rate) of the LED matrix to reduce the flickering as much as possible. The sweet spot seems 
+            to be 120Hz.<br>
+
+            <br><br>
+
+            <h4>Weeks 8-9:</h4>
+            <b>Date:</b> 03/10/2023<br>
+            <b>Total hours:</b> 12<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Incorporating Jetson Nano and Microcontroller Communication in Game Logic</b><br>
+            The first development in this domain was to send the move to the microcontroller after the user input the move. This would cause the microcontroller
+            to receive the move. After pressing the <i>Confirm</i> button, the move would be used to update the board. To send the move, I wrote the following
+            function:<br>
+            <ul>
+                <li>
+                    <code>def send_to_micro(move: chess.Move) -> None</code>:<br>
+                    This function formats the move into the source square's and destination square's x and y coordinates. This is then written to the UART 
+                    Tx port connecting the Jetson Nano and microcontroller. There will also be overriden version of this function which can be used to send
+                    other forms of data, such as strings. Much time was spent testing to ensure that the microcontroller received and confirmed the move.
+                </li>
+            </ul>
+            Next, I began implementing the functionality which enforces the game logic to only make the move if it has received a <i>Confirm</i> button input
+            from the microcontroller. For this, I created the following functions:<br>
+            <ul>
+                <li>
+                    <code>def get_confirmed_move(board: chess.Board) -> chess.Move</code>:<br>
+                    This function first checks if it has received a <i>Record</i> button input from the microcontroller before probing the user for a chess
+                    move. Once the user has entered a move, it returns that move if the <i>Confirm</i> button is pressed. If, however, the <i>Record</i>
+                    button is pressed once more, the user will again be probed for a chess move, allowing them to rerecord the move.
+                </li>
+                <li>
+                    <code>def recv_from_micro()</code>:<br>
+                    This function is currently being prototyped and so, it gets the <i>Confirm</i> or <i>Record</i> input from the console on the Jetson Nano.
+                    This will be extended next week so that it reads the port for a UART packet from the microcontroller. This is then returned.
+                </li>
+            </ul>
+            The below figure illustrates the <i>Confirm</i> and <i>(Re)Record</i> functionality. For an invalid packet, nothing occurs. The user is not probed
+            for an input chess move until a <i>Record</i> instruction is received. Afterwards, another <i>Record</i> instruction will ask the user for another
+            chess move, overwriting the previous move. Once a move is received along with a <i>Confirm</i> instruction, the move is made.<br>
+            <br>
+            <figure>
+                <code>
+                    r n b q k b n r                     <br>
+                    p p p p p p p p                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    P P P P P P P P                     <br>
+                    R N B Q K B N R                     <br>
+                    <br>
+                    White's turn                        <br>
+                    Record(0)/Confirm(1)? random input  <br>
+                    Record(0)/Confirm(1)? 1             <br>
+                    Record(0)/Confirm(1)? 0             <br> 
+                    Enter move: e4                      <br>
+                    Record(0)/Confirm(1)? random input  <br>
+                    Record(0)/Confirm(1)? 0             <br>
+                    Enter move: d4                      <br>
+                    Record(0)/Confirm(1)? 1             <br>
+                    r n b q k b n r                     <br>
+                    p p p p p p p p                     <br>
+                    . . . . . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    . . . P . . . .                     <br>
+                    . . . . . . . .                     <br>
+                    P P P . P P P P                     <br>
+                    R N B Q K B N R                     <br>
+                    <br>
+                    Black's turn                        <br>
+                </code><br>
+                <figcaption>
+                    Figure 8. Console output of the chess game logic demostrating the prototyped Confirm and Record functionality.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Midterm Design Review Presentation</b><br>
+            Much of the time spent on this course during Week 8 revolved around the Midterm Design Review Presentation. For this, I focused on completing the
+            slides, creating the team GANTT chart, and rehearsing the presentation.<br>
+
+            <br><br>
+
+            <h4>Week 7:</h4>
+            <b>Date:</b> 02/24/2023<br>
+            <b>Total hours:</b> 10<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Developing Chess Game Logic</b><br>
+            Initially, we planned on implementing the chess logic on the microcontroller. Keeping this in mind, I spent multiple hours researching different 
+            methods on how to implement a light chess game that can run efficiently on a resource constrained embedded system. My main resource was
+            <a href="https://www.chessprogramming.org/Main_Page">Chess Programming Wiki</a>. After more prototyping, we found that the microcontroller may
+            be insufficient for this purpose.<br>
+            <br>
+            We decided to make a substantial change to our project by moving the game logic from the microcontroller to the Jetson Nano. We found during our
+            testing that the microcontroller was already slowing down under the load of interfacing with the LED matrix and the OLED feedback displays. The
+            Jetson Nano will provide the necessary CPU resources to run the chess game and keep track of the board state. It also opened up the choice of 
+            programming languages as the Jetson Nano runs on Linux.<br>
+            <br>
+            Following this development, I proceeded to implement the chess logic on the Jetson Nano. While researching different methods for doing so, I came
+            across the <a href="https://python-chess.readthedocs.io/en/latest/index.html">python-chess</a> library, which provides many helpful objects and
+            methods for implementing a chess game. Using this, I was able to create a complete and working chess game on the Jetson Nano. The code had the
+            following structure:<br>
+            <ul>
+                <li>
+                    <code>while(not is_stop_condition(board))</code>:<br>
+                    This code checks for one of the stop conditions in chess (checkmate, stalemate, draw by repetition, etc.).<br>
+                    <ul>
+                        <li>
+                            <code>move = get_move(board)</code>:<br>
+                            This gets the move using user input and checks if the move is legal. This can be modified in the future to receive the move from
+                            the microphone.
+                        </li>
+                        <li>
+                            <code>board.push(move)</code>:<br>
+                            This adds the given move to the board's move stack.
+                        </li>
+                        <li>
+                            <code>print_board(board)</code>:<br>
+                            This prints the current board to the console. This can be modified in the future to send the current board state to the microcontroller
+                            so that it may display it on the LED matrix.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <figure>
+                <code>
+                    r n b q k b n r         <br>
+                    p p p p p p p p         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . . .         <br>
+                    P P P P P P P P         <br>
+                    R N B Q K B N R         <br>
+                    White's turn            <br>
+                    Enter you move: f3      <br>
+                    <br>
+                    r n b q k b n r         <br>
+                    p p p p p p p p         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . P . .         <br>
+                    P P P P P . P P         <br>
+                    R N B Q K B N R         <br>
+                    Black's turn            <br>
+                    Enter you move: e6      <br>
+                    <br>
+                    r n b q k b n r         <br>
+                    p p p p . p p p         <br>
+                    . . . . p . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . P . .         <br>
+                    P P P P P . P P         <br>
+                    R N B Q K B N R         <br>
+                    White's turn            <br>
+                    Enter you move: g4      <br>
+                    <br>
+                    r n b q k b n r         <br>
+                    p p p p . p p p         <br>
+                    . . . . p . . .         <br>
+                    . . . . . . . .         <br>
+                    . . . . . . P .         <br>
+                    . . . . . P . .         <br>
+                    P P P P P . . P         <br>
+                    R N B Q K B N R         <br>
+                    Black's turn            <br>
+                    Enter you move: Qh4     <br>
+                    <br>
+                    Checkmate! Black wins!  <br>
+                    r n b . k b n r         <br>  
+                    p p p p . p p p         <br>  
+                    . . . . p . . .         <br>  
+                    . . . . . . . .         <br>  
+                    . . . . . . P q         <br>  
+                    . . . . . P . .         <br>  
+                    P P P P P . . P         <br>  
+                    R N B Q K B N R         <br>  
+                </code><br>
+                <figcaption>
+                    Figure 7. Console output of the chess game logic when playing the "Fool's mate".
+                </figcaption>
+            </figure>
+            <br>
+            <b>Midterm Design Review Presentation</b><br>
+            My other main contribution this week was completing the majority of the slides for the Midterm Design Review Presentation while my teammates worked
+            on the schematic and PCB. This also involved modifying many of the figures I created for the Software Formalization, due to the substantial change
+            in design mentioned earlier.<br>
+
+            <br><br>
+
+            <h4>Week 6:</h4>
+            <b>Date:</b> 02/17/2023<br>
+            <b>Total hours:</b> 6<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Software Formalization</b><br>
+            This week I mainly focused on completing the software formalization. Developing a concrete plan for writing our code for this project makes it
+            much easier to coordinate our teamwork. It allows for more efficient splitting of tasks in the future. Furthermore, it makes it simpler to merge
+            code components into a cohesive final product.<br>
+            <br>
+            For A8 - Software Formalization, I first communicated with my teammates, namely Jack and Tyson, on how they plan on completing their portions of
+            the code respectively. We were able to finalize the major components of their code and how it will interface with the rest of the codebase.
+            In addition, I was able to complete a flow diagram for the program, outlines for the most important methods in each of the three major components 
+            (Basic I/O, Game Logic, and Jetson Nano), and class diagrams for the main structures used to implement the chess game. These diagrams were
+            created using <a href="https://www.lucidchart.com/">Lucidchart</a>. Shown below are the diagrams which were incomplete at the time of writing
+            this report. The complete versions can be found in
+            <a href="https://engineering.purdue.edu/477grp8/Files/docs/A8%20-%20Software%20Formalization.docx">A8 - Software Formalization</a>.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_6/incomplete_nano_and_game_logic.svg" class="aligncenter" width="600em"></img><br>
+                <figcaption>
+                    Figure 6. Incomplete diagram of Jetson Nano and Game Logic methods.
+                </figcaption>
+            </figure>
+
+            <br><br>
+
+            <h4>Week 5:</h4>
+            <b>Date:</b> 02/10/2023<br>
+            <b>Total hours:</b> 5<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            I had very little time to work on this course this week. This is due to the project deadline for ECE 46100, the two exams, and the two careers
+            fairs I had to attend. To make up for this, I will be working harder over the next few weeks.<br>
+            <br>
+            <b>Continuing Research for Implementing Chess Game</b><br>
+            I continued my search for finding an appropriate implementation for the chess game on our microcontroller. Due to the nature of the pieces, an
+            object oriented approach seems very natural for designing the game. Therefore, I decided to convert the project to C++, which had support
+            for classes and its many benefits, such as attributes, methods, and inheritance. I found a great example implementation on
+            <a href="https://www.geeksforgeeks.org/design-a-chess-game/">GeeksForGeeks</a>. While this code is in Java, it should be very straight forward
+            to convert to C++.<br>
+            <br>
+            <b>Starting Class UML Diagram for A8 - Software Formalization</b><br>
+            Following the structure of the classes I found on <a href="https://www.geeksforgeeks.org/design-a-chess-game/">GeeksForGeeks</a>, I started a
+            class UML diagram for the Piece class and those that inherit from this class.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_5/piece_class_uml.svg" class="aligncenter" width="600em"></img><br>
+                <figcaption>
+                    Figure 5. Preliminary class UML diagram for Piece class and children.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Team Assignment</b><br>
+            I filled in the information regarding the microcontroller as well as the Jetson Nano.<br>
+
+            <br><br>
+
+            <h4>Week 4:</h4>
+            <b>Date:</b> 02/03/2023<br>
+            <b>Total hours:</b> 7<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Formatting Text Displayed to 1602A OLED Feedback Screen</b><br>
+            This week, I mainly focused on writing functions that help format the text we wish to display on the OLED feedback screen. To this end, I wrote
+            the following functions:<br>
+            <ul>
+                <li>
+                    <code>void write_to_feedback_display(char *text, char *align_vertical, char *align_horizontal)</code>:<br>
+                    This function takes a string and places it in the location specified. The string can be aligned vertically "top" or "bottom", and
+                    horizontally "left", "right", or "center". This is able to deal with overflowing text.
+                </li>
+                <li>
+                    <code>void clear_feedback_display_portion(int length, char *align_vertical, char *align_horizontal)</code>:<br>
+                    This function makes use of the earlier function to clear a space of the specified length in the desired area of the screen.
+                </li>
+                <li>
+                    <code>char *time_to_string(int time_int)</code>:<br>
+                    This function takes an integer representation of time in tenths of a second and converts in into a formatted string. When the time
+                    is below 20 seconds, the form is <code>%d:%02d.%d</code>, where the integers are minutes, seconds, and tenths of a second
+                    respectively. Otherwise, the time takes the form <code>%d:%02d</code>, dislpaying only the minutes and seconds.
+                </li>
+                <li>
+                    <code>void write_time_to_feedback_display(int time, char *align_vertical, char *align_horizontal)</code>:<br>
+                    This function makes use of the earlier three function to print the formatted time to the area specified in the screen. The second 
+                    function is used to clear the area taken up by the previous time. Doing this avoids any residue from ealier that remains when the
+                    form of the time changes (e.g. going from double digits of minutes to single digits).
+                </li>
+            </ul>
+            <figure>
+                <img src="Team/progress/img/azeem/week_4/formatted_oled.jpg" class="aligncenter" width="600em"></img><br>
+                <figcaption>
+                    Figure 3. Formatted text printed to OLED display: "ECE477 is the best" aligned top-left (overflowed); "Bazim" aligned
+                    bottom-left; and "Hi" aligned bottom-right.
+                </figcaption>
+            </figure>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_4/timer_oled_gt_20.jpg" class="aligncenter" width="600em"></img>
+                <img src="Team/progress/img/azeem/week_4/timer_oled_lt_20.jpg" class="aligncenter" width="600em"></img><br>
+                <figcaption>
+                    Figure 4. Final layout of feedback display with timers above and below 20 seconds.
+                </figcaption>
+            </figure>
+            <br>
+            <b>Team Assignment</b><br>
+            I completed section 1.2 Analysis of Component 2: Feedback Displays of Assignment A5.<br>
+            <br>
+            <b>Starting Chess Game on STM32F091RCT6 Microcontroller</b><br>
+            I began searching for reference material in order to implement the chess game in C to run on the microcontroller. I found an open source 
+            project that seems like a good starting point: <a href="https://github.com/shreejilucifer/Chess-In-C/blob/master/CHESSPR.C">Chess-In-C</a>
+            by Shreeji Pedhadiya.<br>
+
+            <br><br>
+
+            <h4>Week 3:</h4>
+            <b>Date:</b> 01/27/2023<br>
+            <b>Total hours:</b> 8<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Interfacing 1602A OLED Feedback Screen with STM32F091RCT6 Microcontroller</b><br>
+            The OLED display will be used as a method of showing feedback to the user. For example, it may be used to show the current move being played or,
+            if the user makes an error in his/her command, it could display an prompt indicating this error. In addition, we plan on displaying the timers
+            for each player on this display. I began with connecting the display to the microcontroller and sending a simple text message the the display 
+            via SPI.<br>
+            <br>
+            The first step for completing this task was obtaining the manuals for the hardware used. I found the datasheet and reference manual for the
+            microcontroller on the <a href="https://www.digikey.com/en/products/detail/stmicroelectronics/STM32F091RCT6/5087345?utm_adgroup=Integrated%20Circuits&utm_source=google&utm_medium=cpc&utm_campaign=Dynamic%20Search_EN_Product&utm_term=&utm_content=Integrated%20Circuits&gclid=Cj0KCQiAic6eBhCoARIsANlox86nicfdECHUMrfSO0gfUS4wo2ZJR2r56eBv9zQGzDw6YQI3l66n-ZYaAujuEALw_wcB">Digi-Key website</a>.
+            For the OLED screen manual, I visited the <a href="https://www.technologicalarts.ca/support/docs/Components/OLED1602A/SOC1602A.pdf">Technological Art website</a>.
+            I uploaded these onto the References section of the team website.<br>
+            <br>
+            Afterwards, I completed the wiring between the microcontroller and the OLED screen. For this I used PA5, PA7, and PA15 as the SCL, SDA, and NSS lines
+            respectively. Next, I began writing the code to display the wanted text on the screen. To do this, I had to revisit some of my notes and past code
+            from ECE 362 as a reference for setting up the project on Eclipse. I wrote code to setup the GPIO port, setup SPI, and setup DMA.
+            At this point, I ran into my first hurdle. The OLED screen remained empty. I spent multiple hours going over the code I had written and consulted
+            my teammates and old code from ECE 362 to find any errors. It turned out that I had been using the wrong DMA channel; I had used Channel 1 instead of
+            Channel 3.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_3/working_oled.jpg" class="aligncenter" width="600em"></img><br>
+                <figcaption>Figure 1. OLED feedback screen displaying text.</figcaption>
+            </figure>
+            <br>
+            The next step was to try and display a timer to the OLED display. I began by initializing TIM6 and setting an interrupt to fire when the timer
+            counts down. I defined a temporary global variable for time, which was decremented every time the interrupt fired. I also defined a 
+            <code>void write_int_to_display(int num)</code> function, which takes an integer and converts it to a string using sprintf. This string was
+            written to the display in the timer interrupt.<br>
+            <br>
+            <figure>
+                <img src="Team/progress/img/azeem/week_3/timer_oled_1.jpg" class="aligncenter" width="600em"></img>
+                <img src="Team/progress/img/azeem/week_3/timer_oled_2.jpg" class="aligncenter" width="600em"></img><br>
+                <figcaption>Figure 2. Two instances of the displayed timer as it counted down.</figcaption>
+            </figure>
+
+            <br><br>
+
+            <h4>Weeks 1-2:</h4>
+            <b>Date:</b> 01/20/2023<br>
+            <b>Total hours:</b> 5<br>
+            <b>Description of project design efforts:</b><br>
+            <br>
+            <b>Team Assignments</b><br>
+            For Assignment A1, I filled out my part in section 2.0 Roles and Responsibilities. For Assignment A2, I completed sections 3.0 Expected Usage
+            Case, 4.3 Thermal Constraints, and 4.4 Mechanical Constraints. Finally, I configured the team website to apply the provided template and 
+            inputted each team members contact information.<br>
+            <br>
+            <b>Other Contributions</b><br>
+            I spent some time figuring out how to update changes to the team website. I learnt that I must do a hard refresh <code>(Ctrl+Shift+R)</code> 
+            in order to clear the cache and update changes. I shared this information with my teammates. Other than this, I met with my teammates outside
+            of ManLab to finalize some design ideas. I suggested shrinking the vocabulary to just the start square and end square in order to simplify
+            the voice processing. I also recommended using the phonetic alphabet (Alpha, Bravo, etc.), as I saw in some open source projects that this
+            was easier for the software to detect. Finally, I suggested displaying the timer on the same screen as the user feedback in order to decrease 
+            hardware complexity.<br>
+
+        </div>
+	
+		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
+		<div id="footer"></div>
+    </div>
+</div>
+
+<!--JS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#header").load("header.html");
+	$("#menu").load("navbar.html");
+	$("#footer").load("footer.html");
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Name: Boilerplate
+Version: v1.3
+Last Updated: 4/24/2013
+Author: George Hadley
+License: Released for free under a Creative Commons Attribution 2.5 License
+
+This website was based upon a number of source materials, which are elaborated upon in credits.txt
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--Reconfigurable base tag; used to modify the site root location for root-relative links-->
+<!-- Python SimpleHTTPServer Testing -->
+<!--<base href="/http://localhost:8000/" />-->
+<!-- ECE477 preview URL -->
+<!--<base href="/https://engineering.purdue.edu/ece477/preview/" />-->
+<!-- ECE477 final URL -->
+<!--<base href="/https://engineering.purdue.edu/ece477/" />-->
+<!--<base href="https://engineering.purdue.edu/ece477/StudentWebTemplate/" />-->
+    <base href="https://engineering.purdue.edu/477grp8/" /> <!-- Replace the N with your team number-->
+	
+<!--Content-->
+<title>ECE477 Homepage</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="George Hadley">
+<meta name = "format-detection" content = "telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--CSS-->
+<link rel="stylesheet" href="css/default.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/content.css">
+<!--[if IE 6]>
+<link href="/default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+<body>
+<div id="wrapper_site">
+    <div id="wrapper_page">
+		<!-- Instantiate global site header.-->
+		<div id="header"></div>
+		<!-- Instantiate site global navigation bar.-->
+		<div id="menu"></div>
+		<!-- Instantiate slideshow module. All slideshow images should be 1100px x 500px and stored in ./img/slideshow-->
+		<div id="slideshow"></div>
+		<!-- Instantiate main page content. All page content should be added to about.html -->
+		<div id="content">
+            <h2>Project Name: Engineer's Chess</h2>
+			
+            <h2>Project Description:</h2> This project will be a voice activated chess game. 
+																					The current state of the chess set will be displayed on a central 64x64 LED matrix. 
+																					A player will be able to give an input, such as “Alpha-6 to Alpha-7” to the game. 
+																					A microphone will take the voice input and transmit to a Jetson Nano. 
+																					The Jetson Nano will use that data to determine what move is being requested, then send that data to the STM32 microcontroller. 
+																					Programmed logic will determine whether the inputted move is legal, then display feedback through two mirrored LCD text displays. 
+																					There will be multiple buttons to control the flow of the game such as undo buttons and reset buttons. 
+																					There will also be a settable game timer to optionally be used during the game, that will be displayed on the feedback LCDs. 
+																					When this project is complete two players should be able to play a complete game of chess using only their voices to control the pieces.
+																					The PCB will be powered through a barrel jack, that will then send 5V to the Jetson Nano. Regulators will then 
+																					be used to convert the voltage to 3.3V to power the STM32 microcontroller and the LCD text displays.
+																					<br><br>
+																					Stretch Goals:
+																					<ul>
+																					<li>(Hardware): An ability to regulate power to the microcontroller and other low-voltage peripherals using a voltage regulator circuit instead of a purchased module.</li>
+																					<li>(Software): An ability to preprocess speech data using digital filters before sending it to the speech recognition algorithm/API to improve performance.</li>
+																					<li>(Hardware): An ability to receive speech data on a single board computer using a microphone with an ADC and amplifiers instead of a purchased USB microphone.</li>
+																					</ul>
+																					
+
+            <h2>Project Specific Success Criteria (PSSCs):</h2> 
+                <ol>
+                    <li>PSSC #1 (Software): An ability to pass microphone data stored on the Jetson Nano to a speech recognition algorithm.</li>
+                    <li>PSSC #2 (Software): An ability to store and modify data within the microcontroller related to game state to efficiently interface with the game logic.</li>
+                    <li>PSSC #3 (Hardware): An ability to interface with an OLED feedback display over SPI with the microcontroller.</li>
+                    <li>PSSC #4 (Hardware): An ability to interface with a 64x64 LED matrix using a GPIO bit-banging protocol to communicate real-time game state.</li>
+                    <li>PSSC #5 (Hardware): An ability to communicate player commands and Jetson Nano control commands between the microcontroller and Jetson Nano using UART.</li>
+                </ol>
+        </div>
+		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
+		<div id="footer"></div>
+	</div>
+</div>
+
+<!--JS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#header").load("header.html");
+	$("#menu").load("navbar.html");
+	$("#slideshow").load("slideshow.html");
+	//$("#content").load("about.html");
+	$("#footer").load("footer.html");
+});
+</script>
+
+</body>
+</html>

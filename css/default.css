@@ -1,0 +1,295 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 200;
+  color: #454545;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: #221d1d;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+p,
+ol,
+ul {
+  margin-top: 0px;
+}
+
+p {
+  line-height: 200%;
+}
+
+strong {
+}
+
+a {
+  color: #2f2f2f;
+  /*text-decoration: none;*/
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a img {
+  border: none;
+}
+
+img.border {
+}
+
+img.alignleft {
+  float: left;
+}
+
+img.alignright {
+  float: right;
+}
+
+img.aligncenter {
+  margin: 0px auto;
+}
+
+hr {
+  display: none;
+}
+
+/** WRAPPER */
+/* An outer wrapper which is used to wrap the entire site. This should be the top-level instantiation of any Boilerplate HTML page and is used to provide a white outline as part of the style. */
+#wrapper_site {
+  width: 1024px;
+  margin: 0px auto;
+  padding: 0px 0px 0px 0px;
+  background: #ffffff;
+}
+
+/* An inner wrapper which is used to wrap the contents of a page. Global HTML page elements derive their widths from the width of this object, so instantiate it directly below the site wrapper */
+#wrapper_page {
+  width: 900px;
+  margin: 0px auto;
+  padding: 0px 0px 0px 0px;
+  background: #ffffff;
+}
+
+.container {
+  width: inherit;
+  margin: 0px 0px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/** HEADER */
+
+#header {
+}
+
+/* Logo */
+
+#logo {
+  width: inherit;
+  height: auto;
+  margin: 0px 0px 0px 0px;
+  color: #000000;
+  background: #ffffff;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#logo h1,
+#logo p {
+  margin: 0;
+  padding: 0;
+}
+
+#logo h1 {
+  line-height: 80px;
+  letter-spacing: -1px;
+  text-align: right;
+  font-size: 3.4em;
+  color: #1f1f1f;
+}
+
+#logo h1 span {
+  color: #1f1f1f;
+}
+
+#logo p {
+  text-align: center;
+  font-size: 16px;
+  color: #595959;
+}
+
+#logo p a {
+  color: #595959;
+}
+
+#logo a {
+  border: none;
+  background: none;
+  text-decoration: none;
+  color: #1f1f1f;
+}
+
+/** MENU */
+
+#navbar {
+  overflow: hidden;
+  width: inherit;
+  height: 50px;
+  margin: 0px 50px;
+  background: #000000;
+  font-size: 20px;
+  color: #000000;
+}
+
+#navbar ul {
+  margin: -10px 0px 0px 0px;
+  padding: 0px 0px;
+  list-style: none;
+  line-height: normal;
+  text-align: center;
+}
+
+#navbar li {
+  display: inline-block;
+}
+
+#navbar a {
+  display: block;
+  padding: 0px 20px 0px 20px;
+  line-height: 70px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 200;
+  color: #ffffff;
+  border: none;
+}
+
+#navbar a:hover {
+  text-decoration: none;
+  background-color: #b18904;
+}
+
+#navbar .current_page_item a {
+}
+
+#navbar .last {
+  border-right: none;
+}
+
+/** PAGE */
+
+#page {
+}
+
+/** CONTENT */
+
+#content {
+  width: inherit;
+  padding: 15px 15px 0px 0px;
+  margin: 10px auto 10px auto;
+}
+
+/* Footer */
+
+#footer {
+  overflow: hidden;
+  width: inherit;
+  height: 100px;
+  margin: 0 auto;
+  border-top: 1px solid #cbcbcb;
+}
+
+#footer p {
+  margin: 0;
+  padding-top: 10px;
+  line-height: normal;
+  text-align: center;
+  color: #454545;
+}
+
+#footer a {
+  color: #2f2f2f;
+}
+
+/* Message Board */
+
+#message-board {
+  overflow: hidden;
+  width: inherit;
+  margin: 0px auto;
+  padding: 0px 0px 30px 0px;
+}
+
+#message-board .heading {
+  overflow: hidden;
+  padding: 0px 0px 0px 0px;
+}
+
+#message-board .content {
+  overflow: hidden;
+  padding: 0 0px 0px 0px;
+  margin-top: 10px;
+}
+
+#message-board h2 {
+  padding: 5px 0px 0px 40px;
+  background: url(../img/messages.png) no-repeat left 13px;
+  color: #000000;
+}
+
+#banner {
+  width: inherit;
+  margin: 0px auto 0px auto;
+}
+
+/* Additions */
+code {
+  background-color: #eee;
+  border-radius: 3px;
+  font-family: courier, monospace;
+  padding: 0 3px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+figcaption {
+  font-style: italic;
+  text-align: center;
+}
+
+figure code {
+  width: 90%;
+  padding: 0.5rem 1rem
+}
+
+figure code img {
+  float: right;
+  display: flex;
+  padding: 0.5rem
+}

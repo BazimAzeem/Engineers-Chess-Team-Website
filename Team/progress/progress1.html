@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+This is an example weekly progress report document that team members can use to report their individual progress 
+of their ECE477 senior design projects. Weekly progress reports are expected to follow the general guidelines
+presented in the "Progress Report Policy" document, posted on Brightspace.  
+
+Please create 4 copies of this example, renaming each copy to <PurdueID>.html, where <PurdueID> corresponds to
+the Purdue ITAP Career Account ID given by Purdue to each individual team member. If you have any questions,
+contact course staff.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--Reconfigurable base tag; used to modify the site root location for root-relative links-->
+<!--<base href="https://engineering.purdue.edu/ece477/StudentWebTemplate/" />-->
+    <base href="https://engineering.purdue.edu/477grp8/" /> <!-- Replace the N with your team number-->
+
+<!--Content-->
+<title>ECE477 Course Documents</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="George Hadley">
+<meta name = "format-detection" content = "telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--CSS-->
+<link rel="stylesheet" href="css/default.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/content.css">
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+<body>
+<div id="wrapper_site">
+    <div id="wrapper_page">
+	<!-- Instantiate global site header.-->
+	<div id="header"></div>
+		<!-- Instantiate site global navigation bar.-->
+		<div id="menu"></div>
+	
+		<!-- Instantiate a page banner image. Page banner images should be 1100x350px and should be located within the local
+			img folder located at this directory level. -->
+		<div id="banner">
+			<img src="Files/img/BannerImgExample.jpg"></img>
+		</div>
+	
+		<!-- Instantiate "tools" needed for a page. Tools are premade functional blocks that can be used to build a page,
+			and include things such as a file lister (for listing out homework assignments or tutorials)
+		-->
+		<div id="content">
+            <h2>Progress Report for Jack Gardel</h2>
+						<h4>Week 14:</h4>
+            <b>Date:</b> 04/14/2023<br>
+            <b>Total hours:</b> 7<br>
+            <b>Description of project design efforts:</b><br>
+						Full Voice-Recognition Integration: <br>
+						This week, I polished the API between Picovoice and the chess script so that moves could be correctly identified.
+						We ended up using the military alphabet for chess moves (i.e. "Alpha one to bravo two") due to its ease of
+						transcription.  With this task being complete, the project is now fully functional and had a successful demo on
+						Friday, April 14th. <br>
+						<br>
+						Creating a Digital Low-Pass Filter: <br>
+						One of our bonus PSSC's was to design a digital low-pass filter to use in speech recognition.  I did this using a 
+						truncated sinc signal and convolving it with the input waveform to remove any electrical noise.  Because a truncated
+						FIR filter is effected by the Gibbs phenomenon, I multiplied the signal by a Hamming window in order to make the frequency
+						response more level as in figure 28. Unfortunately, the effect of the LPF filter is negligible and was not enough
+						to yield a performance increase of Picovoice.  It is likely that the voice-recognition software we used already 
+						has filtering built-in.  <br>
+						<p><img src="Team/progress/img/gardel/fig27.png" width="400", height="300"></img></p>
+						Figure 27: Frequency response of a sinc function
+						<br>
+						<p><img src="Team/progress/img/gardel/fig28.png" width="400", height="300"></img></p>
+						Figure 24: Frequency response of a sinc function multiplied by a Hamming window
+						<br>
+
+						<h4>Week 13:</h4>
+            <b>Date:</b> 04/07/2023<br>
+            <b>Total hours:</b> 8<br>
+            <b>Description of project design efforts:</b><br>
+						Polling audio off the ADC: <br>
+						With some minor tweaks to the source code, I was able to receive audio data from the ADC on the Jetson Nano
+						that corresponds to the microphone input.  Figure 24 shows one such waveform where I blow into the microphone
+						2 times at it is recorded on the Jetson.  Unfortunately, there is too much noise and the signal is too quiet when
+						I speak a phrase into the microphone.  After the audio circuit is assembled on the PCB, I plan on debugging the noise
+						issue with that.  Until then, I am using a USB microphone as shown in figure 25. <br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig24.png" width="400", height="300"></img></p>
+						Figure 24: A sample waveform from the ADC stored on the Jetson Nano
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig25.png" width="400", height="400"></img></p>
+						Figure 25: The new USB microphone we intend on using if our ADC stretch goal ultimately fails
+						<br>
+						<br>
+						Voice recognition on the Jetson Nano: <br>
+						Using the sounddevice python library, I was able to configure (figure 26) and capture data off the USB
+						microphone into something the picovoice algorithm could use.  I also created an API to connect the output
+						of the voice recognition algorithm to the chess game script.  I am currently debugging scenarios where
+						picovoice recognizes slightly different words that what was intended (i.e. "A five to be seven" instead
+						of "A five to B seven"). <br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig26.png" width="500", height="700"></img></p>
+						Figure 26: Using the sounddevice library to configure the default input device to the USB microphone
+						<br>
+						<br>
+						<h4>Week 12:</h4>
+            <b>Date:</b> 03/31/2023<br>
+            <b>Total hours:</b> 8<br>
+            <b>Description of project design efforts:</b><br>
+						Reliability and Safety Analysis: <br>
+						Lots of time had to be devoted to looking up parameters and searching for points of failure within our design.  Evidence
+						of this can be found under A10 in the documents.
+						<br>
+						<br>
+						Reading data off of the ADC: <br>
+						I already had an ADC communication test-program in place to read speech data onto the Jetson Nano, but this week I began
+						working on converting that into a recognizable waveform stored on the Jetson Nano.  The first problem I ran into was that
+						the actual sample rate I was getting was not as fast as I wanted as evident in figure 21.  To get the effective sample
+						rate closer to 16000 Hz (with my minimum requirement being 6000 Hz), I first saw if I could continuously clock the ADC
+						to receive back-to-back data.  The datasheet for the ADC (figure 22) shows that only one sample can be sent for every
+						transmission.
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig21.png" width="500", height="300"></img></p>
+						Figure 21: The effective sample rate is much lower than desired
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig22.png" width="700", height="400"></img></p>
+						Figure 22: The SPI implementation the ADC allows
+						<br>
+						<br>
+						I began optimizing the loop in my code that polled the ADC and managed to get the sample rate up to 7000 Hz by increasing
+						the SPI CLK rate and allocating a space for the data array beforehand (along with removing mathematical computations from 
+						the loop).  Later I began playing around with 
+						<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.io.wavfile.write.html">The scipy wav file writer</a>
+						to try and move the data into a stored location.  Currently I am just getting static so the next step will be to manipulate
+						the speech data so it can be heard properly.
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig23.png" width="500", height="200"></img></p>
+						Figure 23: The effective sample rate increased to 7000 Hz
+						<br>
+						<br>
+						<h4>Weeks 10-11:</h4>
+            <b>Date:</b> 03/24/2023<br>
+            <b>Total hours:</b> 5<br>
+            <b>Description of project design efforts:</b><br>
+						Transcribing Audio: <br>
+						Using <a href="https://picovoice.ai/docs/quick-start/leopard-python/">Picovoice (voice recognition engine)</a>, I was able to get some simple audio transcription
+						both from a file and from a microphone on my desktop.  Because Picovoice has a direct port for the Jetson Nano, anything I write for
+						my desktop will work with the software for the Nano (minus the API I will make for interfacing the off-board ADC).  In figure 20, I printed 
+						the output of this transcription for a wav file.
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig20.png" width="800", height="200"></img></p>
+						Figure 20: Transcription of a simple chess command
+						<br>
+						<br>
+						<h4>Weeks 8-9:</h4>
+            <b>Date:</b> 03/10/2023<br>
+            <b>Total hours:</b> 21<br>
+            <b>Description of project design efforts:</b><br>
+						PCB Finalizing: <br>
+						This was a team effort but was a lot of work for all of us.  I contributed much at the end by adding additional power planes
+						and correcting any routing mistakes in the design.  Many hours were spent looking at the schematic and comparing it to our prototypes,
+						and then making sure the routing didn't cause any magnetic coupling.
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig18.png" width="400", height="400"></img></p>
+						Figure 18: PCB with power planes on both sides and many unecissary traces removed
+						<br>
+						<br>
+						Creating the Midterm Design Review Slides: <br>
+						I was involved in taking information from past assignments and placing them on the slides such as the electrical overview and
+						the component analysis.  During this process I also updated all past assignments through the grades we received on them.  Additional time
+						was spent with the team to assign speaking roles and to rehearse what we would say and questions we would have to answer.
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig19.png" width="700", height="400"></img></p>
+						Figure 19: Component slide for the single board computer, one of the many slides I filled in
+						<br>
+						<br>
+            <h4>Week 7:</h4>
+            <b>Date:</b> 02/24/2023<br>
+            <b>Total hours:</b> 12<br>
+            <b>Description of project design efforts:</b><br>
+						PCB for the Button Interface: <br>
+						This week, in addition to meeting with the team several times to work collectively on the PCB, I also designed the PCBs to be
+						used for user input, which will be connected to our main board via headers and jumer cables.  Our final design consisted of 4
+						buttons: record, confirm, time up, and time down.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig13.png" width="900", height="400"></img></p>
+						Figure 13: Current PCB design for the button interface
+						<br>
+						<br>
+						Jetson Nano to STM32 Protocol: <br>
+						Tyson and I contributed to a discussion about the communication protocol between the Jetson Nano and the STM32 microcontroller
+						concerning movement data.  The result of this discussion can be seen in figure 14.  Additionally, I created a small test program
+						based on our protocol specification to communicate with the STM32, which we were able to test successfully.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig14.png" width="600", height="500"></img></p>
+						Figure 14: UART protocol specification for the connection between the Jetson Nano and the STM32
+						<br>
+						<br>
+						ADC-to-Jetson Prototyping: <br>
+						I looked into Python modules for using the SPI on the Jetson Nano, and how to set up the GPIO ports so that I could communicate
+						with the ADC.  I also had to look at the protocol specification for the ADC to receive samples.  Similar to our UART protocol, I
+						created a test program to easily receive analog data off of the ADC.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig15.png" width="900", height="150"></img></p>
+						Figure 15: Received data from the ADC to the Jetson Nano seen through a logic analyzer (AD2)
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig16.png" width="600", height="500"></img></p>
+						Figure 16: Terminal output on the Jetson Nano receiving analog data from the ADC
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig17.png" width="600", height="500"></img></p>
+						Figure 17: Wiring setup for the AD2 logic analyzer (right), Jetson Nano (top), and ADC (center-left)
+						<br>
+						<br>
+            <h4>Week 6:</h4>
+            <b>Date:</b> 02/17/2023<br>
+            <b>Total hours:</b> 9<br>
+            <b>Description of project design efforts:</b><br>
+						Schematic and PCB Layout: <br>
+						I met with Andy on Monday and Wednesday to discuss the various footprints to be used, and to collaborate with him directly on the PCB.
+						We decided where we may need level shifters, and searched for surface mount components to match the through-hole components we bought
+						for prototyping.
+						<br>
+						<br>
+						Jetson Nano UART Prototyping: <br>
+						Using <a href="https://jetsonhacks.com/2019/10/10/jetson-nano-uart/">this link</a> and the associated repository, I was able to
+						construct a simple UART program using the API given by the Jetson Nano.  This included discovery on how the API works: the send()
+						method sends a string to the API using the UART configuration of the serial port object.  The receive() method is a blocking method
+						that waits until a specified number of bytes have been received and put on the serial port's buffer (default being one).  As seen in
+						figure 12, I was able to hook up the Jetson Nano to a function generator/ logic analyzer.  The pins connected on the Jetson Nano are
+						8 for TX, 10 for RX, and GND for common GND.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig12.png" width="600", height="500"></img></p>
+						Figure 12: Jetson Nano connected to an AD2 (logic analyzer)
+						<br>
+						<br>
+						Debugging speech recognition installations: <br>
+						The pocketsphinx program discussed earlier has several problems with dependencies that keep it from being installed: most likely due
+						to the application being designed on an x86 machine while I try and download it on a board with ARM architecture.  I have decided to
+						move foward with other alternatives that are designed specifically for the Jetson Nano platform.  Currently, I am looking at
+						<a href="https://picovoice.ai/docs/quick-start/picovoice-jetson/">Picovoice for Jetson Nano.</a>
+						<br>
+						<br>
+						<h4>Week 5:</h4>
+            <b>Date:</b> 02/10/2023<br>
+            <b>Total hours:</b> 8<br>
+            <b>Description of project design efforts:</b><br>
+						Installing Speech Recognition Software: <br>
+						As it is no longer the goal to write our own speech recognition algorithm, I found an open-source speech recognizer called pocketsphinx
+						(discussed earlier) that provides both a binary and a python library.  The installation guide on the 
+						<a href="https://github.com/cmusphinx/pocketsphinx/blob/master/README.md#installation">project's github</a> was not verbose,
+						so it took some time to get it installed on the Jetson Nano: for instance, the guide does not talk about needing to change directory
+						into the repository before running certain commands, skipping over a few steps that I had to infer.
+						<br>
+						<br>
+						Initial PCB Design: <br>
+						With Andy being the hardware engineer, I opted to help him design the PCB so that the team has at least two people working on it.  So
+						far, I've helped him identify different features of KiCad such as the ability to assign footprints to different symbols and finding good
+						footprints to use for the different headers that will be present on our board.  I also helped him with placing net identifiers so that they
+						would appear on the PCB once leaving the schematic editor.  I searched for past projects from ECE 362 to find the correct footprints 
+						for headers, resistors, and capacitors.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig11.png" width="850", height="550"></img></p>
+						Figure 11: Schematic design from ECE 362 which was used to extract relevant symbols and footprints to be used this semester
+						<br>
+						<br>
+						<h4>Week 4:</h4>
+            <b>Date:</b> 02/03/2023<br>
+            <b>Total hours:</b> 10<br>
+            <b>Description of project design efforts:</b><br>
+						Jetson Nano First Boot: <br>
+						With the single-board computer coming in this week, I got to work on flashing an SD card with instructions on NVIDIA's website.  After
+						flashing, I booted the board in "headless" mode: where the jumpers for power are connected.  In this mode, there is no graphical functionality
+						and the Nano is configured to be connected to using a serial-port program.  I used the picocom application to connect to the board over 
+						USB on my personal desktop as in figure 8.  Figure 7 shows the board pinout in the configuration. <br>
+
+						<br>
+						<p><img src="Team/progress/img/gardel/fig7.png" width="500", height="500"></img></p>
+						Figure 7: Ports connected on the first boot of the Jetson Nano
+						<br>
+
+						<br>
+						<p><img src="Team/progress/img/gardel/fig8.png" width="500", height="600"></img></p>
+						Figure 8: Terminal output of the Jetson Nano board on startup and login
+						<br>
+						<br>
+
+						Jetson Nano Server: <br>
+						In the lab space, we have access to several ethernet ports, all of which give internet-facing IP addresses.  The benefit of this is
+						that we can set up servers for remote testing.  Since the Jetson Nano runs on Ubuntu, it wasn't hard to configure a server by configuring
+						the IP address <a href="https://stackoverflow.com/questions/66384210/how-te-set-a-static-ip-for-a-jetson-nano">to be static</a> and turning on an ssh daemon as shown in figure 10.
+
+						<br>
+						<p><img src="Team/progress/img/gardel/fig9.png" width="500", height="500"></img></p>
+						Figure 9: Ports connected on the Jetson Nano in the lab for a server connection
+						<br>
+
+						<br>
+						<p><img src="Team/progress/img/gardel/fig10.png" width="500", height="550"></img></p>
+						Figure 10: Terminal example of connecting to the Jetson Nano from another LAN and showing the status of the daemon
+						<br>
+						<br>
+						Electrical Overview: <br>
+						This week, it was my turn to do an individual assignment.  I assessed all communication protocols present on the board
+						as well as the power draw from each major component.  As expected, the Jetson Nano draws the most power in our design
+						at around 5-10 W. <br>
+						<br>
+						Component Analysis: <br>
+						I also contributed to our component analysis document, touching on single board computers that we could use in our design.
+						As seen in prior sections, we have already settled on using a Jetson Nano over a Raspberry Pi for the extra computational
+						power and current market availability. <br>
+						<br>
+						Discussing the Final Design: <br>
+						As a team, we met for more time this week to finalize hardware we would use, as well as hardware that could be a "stretch-goal"
+						if we got to it.  We've concluded that the STM32-to-Nano protocol would be UART and that the rest (OLED, ADC) would communicate
+						via SPI.  I also concluded, through much research, that designing my own speech-recognition algorithm does not budget well into
+						time to test everything else.  Therefore, we will be using an open-source speech recognition algorithm provided by a third party.
+						<h4>Week 3:</h4>
+            <b>Date:</b> 01/27/2023<br>
+            <b>Total hours:</b> 6<br>
+            <b>Description of project design efforts:</b><br>
+						Spectrogram Experimentation: <br>
+						Building on the spectrogram proof-of-concept from week 2, I successfully replicated the spectrogram found in the matplotlib
+						library.  Looking at figure 5, I was able to create a more distinct and recognizable plot by changing all magnitudes
+						in the spectrogram matrix to a logarithmic scale.  Additionally, I added some sound-classification by using GaussianNB from
+						the scikit-learn python library.  I found <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">this article</a>
+						explaining how to train the classifier and deploy it, even for multivariate cases such as ours.  Even with normalizing
+						the spectral data, the classifier still has trouble with only a few sound classes.  At this stage, it is becoming
+						evident how much effort I would need to put into the project to create a "small" scale speech-recognition program.
+						I am considering other alternatives and open-source recognition engines such as
+						<a href="https://github.com/cmusphinx/pocketsphinx">Pocket Sphinx</a>, a compact recognition engine written mostly in C.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig5.png" width="700", height="400"></img></p>
+						Figure 5: Current output of the spectrogram python script on a logarithmic scale
+						<br> Left to right: manually computed spectrogram, input audio signal, pre-defined spectrogram from a library, frequency spectrum for
+								 a single time instance.
+
+						<br>
+						<br>
+						Speaker Recognition Research: <br>
+						While looking for other methods of speech recognition I found 
+						<a href="https://www.researchgate.net/publication/255656750_Speaker_Recognition_Using_Spectral_Cross-correlation_A_Fast_Algorithm?enrichId=rgreq-bc3e9b27b824f6b96c86cbd75a5f1b06-XXX&enrichSource=Y292ZXJQYWdlOzI1NTY1Njc1MDtBUzo5NDgyOTMyNzQxODE2MzVAMTYwMzEwMjE0MzgzNw%3D%3D&el=1_x_3&_esc=publicationCoverPdf">this paper</a> 
+						pertaining to "speaker recognition", 
+						where the speaker's identity is classified through what is called "spectral correlation".  While this paper isn't explicitely
+						performing speech recognition, I plan on using concepts from it in my own proof-of-concept.
+
+						<br>
+						<p><img src="Team/progress/img/gardel/fig6.png" width="400", height="700"></img></p>
+						Figure 6: Flowchart for using spectral correlation to recognize the speaker
+
+            <br>
+						<br>
+						<br>
+						<br>
+            <h4>Weeks 1-2:</h4>
+            <b>Date:</b> 01/20/2023<br>
+            <b>Total hours:</b> 11<br>
+            <b>Description of project design efforts:</b><br>
+						Final Project Proposal: <br>
+						On this assignment I discussed with my teammates what roles we would each be taking on.  I concluded that I will be the team
+						leader, as well as the mathemetician for dealing with digital signal processing and machine learning algorithms for the speech
+						recognition the project includes.  We also chose the different homework assignments we would be taking on: with myself picking
+						the electrical overview (A4) and the reliability and safety analysis (A10).  Additionally, based on market prices for single
+						board computers, I concluded that our secondary computer for DSP and ML would cost around $100.  I also coordinated the team on
+						choosing project specific success criteria.
+						<br>
+						<br>
+						Functional Specification: <br>
+						On this document, I wrote the full "theory of operation" section where I detailed the math behind the Discrete Fourier Transform, as
+						well as using the transform to create a spectrogram of a speech sample.  Additionally, I had to add a paragraph under the "computational
+						constraints" section detailing the level of hardware we would need for algorithms such as FFT, Naive Bayes, k-nearest neighbor, etc.
+						<br>
+						<br>
+						Signal Processing Research: <br>
+						I looked at multiple algorithms for both signal processing and classification in my prior notebooks and online.  Part of this Research
+						is to see how possible it would be for a novice computer engineer to make a small-scale recognition algorithm with a limited
+						vocabulary.  In one such article, I found out the use of both a recurrent model (figure 1) and spectrograms (figure 2) to track frequency
+						changes across time.  In another effort to focus on recurrent models, I discovered what are called "hidden Markov models" or HMMs (figure 3).
+						These are quite similar to Markov models found in classes such as IE 336, but with multiple layers of stochastic processes, meaning I
+						can use a hidden Markov model for different sounds inside of a visible Markov model for words.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig1.png"></img></p>
+						Figure 1: Diagram of a recurrent machine learning model
+						<br> <a href="https://medium.com/@ageitgey/machine-learning-is-fun-part-6-how-to-do-speech-recognition-with-deep-learning-28293c162f7a">Source</a>
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig2.png"></img></p>
+						Figure 2: Sample image of a spectrogram
+						<br> <a href="https://medium.com/@ageitgey/machine-learning-is-fun-part-6-how-to-do-speech-recognition-with-deep-learning-28293c162f7a">Source</a>
+						<br>
+						<br>
+						<p><img src="Team/progress/img/gardel/fig3.png"></img></p>
+						Figure 3: Harmonic Markov Model
+						<br> <a href="https://en.wikipedia.org/wiki/Hidden_Markov_model">Source</a>
+						<br>
+						<br>
+						Proof of Concept for Speech Recognition: <br>
+						During the latter half of the second week, I started on making a quick development of the speech recognition algorithm to prove that
+						I could do it.  Currently, I am working on perfecting the spectrogram data so that it is consistent in each frequency band.  The
+						current result is figure 4, where the fft algorithm is working but work will have to be done to scale frequencies appropriately.
+						<br>
+						<p><img src="Team/progress/img/gardel/fig4.png" width="700", height="400"></img></p>
+						Figure 4: Current output of the spectrogram python script
+						<br> Left to right: manually computed spectrogram, input audio signal, pre-defined spectrogram from a library, frequency spectrum for
+								 a single time instance.
+						<br>
+						<br>
+
+              
+        </div>
+	
+		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
+		<div id="footer"></div>
+    </div>
+</div>
+
+<!--JS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#header").load("header.html");
+	$("#menu").load("navbar.html");
+	$("#footer").load("footer.html");
+});
+</script>
+</body>
+</html>

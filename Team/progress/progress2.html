@@ -1,0 +1,470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+This is an example weekly progress report document that team members can use to report their individual progress 
+of their ECE477 senior design projects. Weekly progress reports are expected to follow the general guidelines
+presented in the "Progress Report Policy" document, posted on Brightspace.  
+
+Please create 4 copies of this example, renaming each copy to <PurdueID>.html, where <PurdueID> corresponds to
+the Purdue ITAP Career Account ID given by Purdue to each individual team member. If you have any questions,
+contact course staff.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--Reconfigurable base tag; used to modify the site root location for root-relative links-->
+<!--<base href="https://engineering.purdue.edu/ece477/StudentWebTemplate/" />-->
+    <base href="https://engineering.purdue.edu/477grp8/" /> <!-- Replace the N with your team number-->
+
+<!--Content-->
+<title>ECE477 Course Documents</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="George Hadley">
+<meta name = "format-detection" content = "telephone=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--CSS-->
+<link rel="stylesheet" href="css/default.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/content.css">
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+<body>
+<div id="wrapper_site">
+    <div id="wrapper_page">
+	<!-- Instantiate global site header.-->
+	<div id="header"></div>
+		<!-- Instantiate site global navigation bar.-->
+		<div id="menu"></div>
+	
+		<!-- Instantiate a page banner image. Page banner images should be 1100x350px and should be located within the local
+			img folder located at this directory level. -->
+		<div id="banner">
+			<img src="Files/img/BannerImgExample.jpg"></img>
+		</div>
+	
+		<!-- Instantiate "tools" needed for a page. Tools are premade functional blocks that can be used to build a page,
+			and include things such as a file lister (for listing out homework assignments or tutorials)
+		-->
+		<div id="content">
+            <h2>Progress Reports for Tyson Kline</h2>
+
+            <h4>Week 13:</h4>
+            <b>Date: 4-14-2023</b> <br>
+            <b>Total hours: 10</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused on doing everything necessary to complete any remaining tasks for the project. This meant finishing 
+            the PCB, constructing the packaging, and performing tests to ensure proper function.
+            </br><br>
+            The first part of my week was completing the PCB. As mentioned in previous progress reports, I had troubles where a PCB 
+            was failing, and resoldered the entire PCB. I put the finishing touches on the new PCB early this week, adding all the 
+            necessary components for full functionality. This time, I did not solder the audio circuit because we have decided to 
+            abandon that stretch goal as it was causing errors in the rest of the circuit. Once that soldering was done, I moved 
+            on to assembly. 
+            </br><br>
+            I spent a lot of time working with Andy putting the packaging for Engineer's Chess together. We had to glue several 
+            pieces of balsa wood that Andy had previously laser cut together into the box we had designed. This entailed gluing, 
+            screwing, and velcroing several pieces together. Each piece had to be glued individually, then allowed to set before any 
+            pieces that rested on it could be added. Once this process was complete, the project looked like it does below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Final.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            Once the project was assembled, we conducted several thorough tests to ensure both the accuracy of the speech recognition 
+            algorithm and the consistency of the gameplay. We played several games against each other, taking note of where errors 
+            were being caused and where software could be cleaned up a bit. We also tested the speech recognition algorithm to find 
+            cases where it barely misinterpreted the word. For example, we noticed that sometimes when we said "Echo," the algorithm 
+            would hear "I go," so we set the two inputs to accomplish the same task. Ultimately, our testing went very successfully.
+            </br><br>
+            We finished off our week by successfully demonstrating our completed project. We were able to show that our project met 
+            all PSSCs and all of the functionality we listed.
+            </br><br>
+
+            <h4>Week 12:</h4>
+            <b>Date: 4-7-2023</b> <br>
+            <b>Total hours: 12</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused on testing the combined assembled PCB with all peripherals at the same time. This includes the USART 
+            communiction, the button board, and the LCD text displays. These connections can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/IMG_6521.jpg" width = 400px height = auto></img></p>
+            <p><img src="Team/progress/img/kline/IMG_6522.jpg" width = 400px height = auto></img></p>
+            <p><img src="Team/progress/img/kline/IMG_6523.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            I ran into several bugs while testing the devices. The first bug was an improper connection between the button board and 
+            the main board. Two pins were out of place, but this was easily solved by moving around the jumper wires between the two. 
+            There was a similar problem with the LCD text displays, and this was easily solved as well.
+            </br><br>
+            Another bug was a failure to operate due to a connection between the digital portion of the board and the analog portion 
+            of the board. I solved this by isolating the digital and analog portions of the circuit from each other. Unfortunately, 
+            this means we will be unable to complete this stretch goal, but this is manageable in order to ensure proper function of 
+            our design.
+            </br><br>
+            A much larger but that arose during testing was the sudden failure of the LED matrix. I suspect that this failure was due 
+            to an error in the soldering, as the LED matrix still worked on our breadboard prototype. To fix this, I plan on 
+            resoldering the entire board to ensure proper connections.
+            </br><br>
+
+            <h4>Week 11:</h4>
+            <b>Date: 3-31-2023</b> <br>
+            <b>Total hours: 10</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused on soldering the PCB to the point that it was able to perform all hardware functions listed in our 
+            PSSCs. This included soldering the microcontroller, programming the microcontroller, soldering resistors and capacitors, 
+            adding the level shifters, and adding headers to interface with off-board devices.
+            </br><br>
+            The microcontroller was definitely the hardest thing to solder so far. Before I worked on the actual board, I decided to 
+            practice with a test board and microcontroller. I had several issues figuring out things like the right amount of solder 
+            to use, the correct amount of pressure to add, and how to remove inevitable solder bridges. Once I was confident with this, 
+            I was able to solder the part to the actual board, and I had no issues. After this I added the programming header and 
+            ensured that I was able to program it by toggling a gpio pin that led to a test point.
+            </br><br>
+            The next big soldering challenge was the small level shifters to change the voltage of the LED matrix signals. I had a small 
+            issue where I pulled some pads off the board, but I was able to fix it using flywiring. I also added the headers and the 
+            resistors for the LCD text displays, button boards, and UART connection to the Jetson Nano. Once this was complete, I tested 
+            the board, and the results can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/EssenSolder.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            With this soldering done, we were able to get preliminary check-offs for four out of our five PSSCs. The next steps in the 
+            project are creating the packaging, implementing voice recognition, and making some final software tweaks.
+            </br><br>
+
+            <h4>Week 10:</h4>
+            <b>Date: 3-24-2023</b> <br>
+            <b>Total hours: 8</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused mainly on verifying and beginning to solder the PCBs received. I also completed A9 - Legal & Regulatory 
+            Analysis. Finally, I helped make small changes to the code to make game behavior more like our final intended design.
+            </br><br>
+            The first and largest task of the week was beginning to solder our PCBs. I began by soldering the two button boards. These 
+            boards are quite simple, with only four buttons, four resistors, and a header to connect to the main board. The completed 
+            button board can be seen in the image below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/BBoard.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            Once the button board was completely soldered, I tested it to verify that it worked properly. I performed continuity checks 
+            between all connected pins, as well as using a multimeter to measure resistance of the resistor components. Once all of this 
+            testing was done, I put the button board on the breadboard prototype of Engineer's Chess to test that the buttons still worked 
+            the same, and they did.
+            </br><br>
+            After completing the soldering of the button boards, I began work on soldering the main board. To begin, I performed continuity 
+            checks between ground pins, power pins, and ground and power pins to ensure that all pins that should be connected would be, 
+            and all pins that should not be connected would not be. After doing this, I began work installing the part of the circuit that 
+            controls the power. This includes the barrel jacks, the large capacitor, the regulator, and the resistors, capacitors, and 
+            diode that make up the regulator circuit. After soldering these successfully, I used the multimeter to confirm that 3.3V pins 
+            received roughly 3.3 volts and 5V pins received roughly 5 volts. I also tested the power cable to the LED display to ensure 
+            that our decision to use Y terminals to connect them to power worked as expected. All of these were checked and successfully 
+            verified. The parts soldered to the PCB can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/PowerSolder.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            The next steps for soldering the PCB are to solder and test the microcontroller. This will require practicing beforehand to 
+            ensure that the real microcontroller we are using will be soldered without damaging it. After soldering the microcontroller, I 
+            will begin soldering the rest of the PCB.
+            </br><br>
+            Finally, I worked on A9 and helped implement some minor changes to the software to make our prototype look better. This 
+            included work to reduce flickering, change the secondary display to show letters instead of numbers, and post code to an online 
+            repository.
+            </br><br>
+
+            <h4>Weeks 8-9:</h4>
+            <b>Date: 3-9-2023</b> <br>
+            <b>Total hours: 15</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            During week 8 I focused almost entirely on preparing for the Midterm Design Review. I spent several hours working on slides, 
+            helping finalize the PCB, practicing the presentation, and finalizing the design prototype. The results can be seen in the 
+            presentation displayed on this website. I ensured that every piece of hardware that we are putting on the PCB was tested. 
+            This meant prototyping the LED matrix, the two LCD text displays, the level shifters, and USART communication with the Jetson 
+            Nano.
+            </br><br>
+            During week 9 my focus was on implementing feedback gained from the Midterm Design Review and some minor software improvements. 
+            I helped make modifications to the PCB to fix the few errors. This included selecting a new oscillator for the clock, modifying 
+            the voltage regulator, cleaning up some wiring, and more.
+            </br><br>
+            The software changes I implemented were related to user feedback and the interface with the Jetson Nano. Previously, the location 
+            information for the squares were specified based on matrix indexing. This meant that the top left square was 0,0, and the bottom 
+            right square was 7,7. In the new interface, the location information is based on coordinate plane indexing. This means that the 
+            bottom left square is 1,1, and the top right square is 8,8. This location information is also reflected in the feedback to the 
+            LCD text display. The purpose of this was to make the interface more closely reflect the command a user will give.
+            </br><br>
+            The next steps for this project are to make final changes to the PCB and order it. In the following weeks, I will assist in 
+            soldering parts to the board and testing everything.
+            </br><br>
+
+            <h4>Week 7:</h4>
+            <b>Date: 2-24-2023</b> <br>
+            <b>Total hours: 10</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused on putting several finishing touches on the prototype to prepare for the design review and ensure that 
+            everything we envisioned for Engineer’s Chess would work as expected. I implemented the USART communication between the 
+            microcontroller and the Jetson Nano, I ensured that our microcontroller could handle running the LED matrix, USART 
+            communication, and timer displays at the same time, helped verify the design of our printed circuit board, and worked on 
+            our presentation for the Midterm Design Review.
+            </br><br>
+            My first and biggest contribution of the week was implementing the USART communication between the Jetson Nano and the 
+            microcontroller. The packet format we settled on was a total of eight bits. The first two bits designated the command type, 
+            and the last six specified the command content. I hooked up the display portion of Engineer’s Chess to the Jetson Nano and 
+            verified that moves specified in the Jetson Nano were able to be read by the microcontroller and reflected in the LED display 
+            output. I also wrote functions to allow the microcontroller to send signals back to the Jetson Nano, and verified using an 
+            oscilloscope that those signals were correctly outputted through the Tx pin of the microcontroller.           
+            </br><br>
+            My next contribution of the week was ensuring that our microcontroller was capable of performing all the operations that we 
+            were expecting it to do. I did this by turning on all systems at once. I ran the LED matrix, turned on both LCD text displays, 
+            and received and transmitted USART data all at the same time. We had intended for the microcontroller to also run game logic, 
+            but discovered that the previously mentioned tasks took up all of the microcontroller’s processing capabilities. We then 
+            decided that the Jetson Nano would run the game logic. 
+            </br><br>
+            Finally I helped verify the design of our PCB and fill up our presentation in preparation for the Midterm Design Review. I 
+            checked to see that all parts were included in the PCB design, trace widths were appropriately sized for power lines and 
+            signal lines, signals were protected from outside ESD, and that all parts were properly laid out. After the work this week, 
+            I believe we are well on our way to being ready for the Midterm Design Review.
+            </br><br>
+
+            <h4>Week 6:</h4>
+            <b>Date: 2-17-2023</b> <br>
+            <b>Total hours: 6</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused mostly on providing missing components to the overall design of Engineer’s Chess that will be necessary 
+            in order to create a complete prototype for the Midterm Design Review. This included wiring hardware for buttons, writing 
+            code in order to ensure proper debouncing, creating an initial state for the game, and moving control of the main LED 
+            Display to a timer-based interrupt instead of an infinite loop in the main function.
+            </br><br>
+            The first major contribution of the week was wiring buttons into the microcontroller such that they would cause interrupts 
+            in order to provide user input. There are four buttons per player: a confirm button, an undo button, a timer up button, 
+            and a timer down button. These buttons are connected to GPIO pins 0, 3, 10, and 13. Each corresponding button for either 
+            player is connected to the same input pin, so a press of either player’s button controls the same thing. The wiring of one 
+            player’s buttons can be seen below.           
+            </br><br>
+            <p><img src="Team/progress/img/kline/Buttons.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            Once the wiring of the buttons was complete, the next step was to write the code to debounce the buttons and to perform 
+            their functions. To debounce the buttons, I chose to have a flag that went high every time a button press was detected. 
+            Since Engineer’s Chess already utilizes a 1Hz clock, I used this clock to reset the button press flag. This way, only 
+            one button press can be detected in a one-second window, leading to excellent debouncing.            
+            </br><br>
+            I also created an initial state for Engineer’s Chess. In this initial state, players can choose the amount of time they 
+            have to play the game. While this initial state is active, the LED display is completely off. The timer up and timer down 
+            buttons mentioned previously change the timer in one-minute increments. Once the confirm button is pressed, the time is 
+            locked in and begins counting down. At this point, the LED Display also turns on and displays the initial state of the game.            
+            </br><br>
+            My final contribution this week was to modify the operation of the LED Matrix control code so that it was activated by a 
+            timer-based interrupt instead of being activated in the main function. This way the display is less susceptible to 
+            flickering due to other interrupts and has a higher priority. The timer operates at a very high speed so that the 
+            display is still solid. There is still some extremely minor flickering, but I will explore options for fixing this once 
+            the hardware has been locked down.
+            </br><br>
+
+            <h4>Week 5:</h4>
+            <b>Date: 2-10-2023</b> <br>
+            <b>Total hours: 7</b> <br>
+            <b>Description of project design efforts:</b><br>
+            </br><br>
+            This week I focused on integrating several parts of the project onto one breadboard, as well as putting further work into 
+            areas of the project that needed improvement. This included installing level shifters for logic signals, as well as making 
+            adjustments to the timing. I also contributed to the Bill of Materials due this week.
+            </br><br>
+            The first major contribution this week was installing level shifters. Each level shifter can shift four signals from the 
+            same starting voltage to the same final voltage. There are fourteen logical control signals from the microcontroller to 
+            the LED matrix, and each of them needed to be shifted, so that meant I used four level shifters in total. The pinout for 
+            the level shifter can be seen below.            
+            </br><br>
+            <p><img src="Team/progress/img/kline/LevelShifter.png" width = 400px height = auto></img></p>
+            </br><br>
+            The next major contribution was modifying existing portions of the project in order to ensure that integration of these 
+            parts into a single prototype went smoothly. The first step in this process was to designate pins to each portion of the 
+            project. If one team member expected a pin to be available and wrote code accordingly but another team member was already 
+            using that pin, integrating the two systems into one design would be much harder. I took charge of organizing this process 
+            and designating pins for each existing portion of the project. 
+            </br><br>
+            Another improvement to the project was writing the code to move a piece from its starting location to a designated position. 
+            I did this through a function I wrote called movePiece. This function takes as input the x and y coordinates of the origin 
+            square, as well as the x and y coordinates of the destination square. It operates by copying all information from the origin 
+            square object to the destination square object, then clearing all information in the origin square’s object. This means that 
+            the moved piece will move to the new location, as well as replace any opposing piece that was in that location. This allowed 
+            me to simulate piece movement at a low level.
+            </br><br>
+            My final main contribution was the actual integration of several components of the project into one. This included the LED 
+            matrix, the level shifters, the LCD text displays, and the new movePiece function. This involved extensive rewiring, along 
+            with reprogramming the timing in order to ensure that the LED matrix display was still smooth while the microcontroller was 
+            handling multiple tasks at once. The final result of this first integration can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Integration.jpg" width = 400px height = auto></img></p>
+            </br><br>
+
+            <h4>Week 4:</h4>
+            <b>Date: 2-3-2023</b> <br>
+            <b>Total hours: 8</b> <br>
+            <b>Description of project design efforts:</b><br>
+            This week I focused on completing my portion of A5 and on upgrading the functionality of the LED matrix display. I researched 
+            and ordered level shifters so that the signals going into the LED matrix would be at the appropriate level, I modified the 
+            display code so that it could be controlled through an 8x8 matrix of tile objects instead of a 64x64 array of pixels, and 
+            finally I organized the code into functions.
+            </br><br>
+            For the component analysis I focused on an analysis of the LED matrix component. I compared the module we chose, the Adafruit 
+            64x64 3mm LED display, with two other components: the Adafruit 64x64 2mm LED display and the Adafruit 32x32 6mm LED display. 
+            I eventually created the comparison chart seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/LEDDisplayComparison.png" width = 400px height = auto></img></p>
+            </br><br>
+            The next major contribution of the week was acquiring level shifters for the LED matrix. These will serve to change the 3.3V 
+            output of the STM32’s GPIO pins to the 5V input that the LED matrix expects. This helps prevent flickering by ensuring that 
+            every signal value is well above the threshold voltage of the LED matrix. After researching a few options, I settled on the 
+            Digikey CD4019BE level shifter. I chose this because it allows up to four inputs to be shifted up to a higher output, which 
+            is necessary due to the large number of GPIO outputs that need to be converted. There are a total of fourteen input pins on 
+            the LED matrix that will require a 5V input.
+            </br><br>
+            Some other progress I made this week was modifying the display code so that instead of setting each pixel one at a time, 
+            pixels are read from objects and constant values so that it is much easier to switch between pieces. The format of the 
+            object can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Struct.png" width = 200px height = auto></img></p>
+            </br><br>
+            This object format allowed me to easily set pieces on the already defined board by using the piece variable as an index to 
+            a 7x8x8 matrix of pieces and tile layouts for each piece. I was able to create an initial state for Engineer’s Chess, and 
+            that can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/ChessboardPieces.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            My final progress on the LED matrix was to organize the code into functions so that the main function was more abstract 
+            and the code was easier to understand. I created a function called initializeBoard that creates the starting display seen 
+            above. I also created a function to read the tile objects and display the current state of the board based on them. 
+            </br><br>
+            Overall this week led to a lot of progress on the LED matrix as well as the component analysis. Next week I plan on 
+            implementing the LED shifters I ordered, as well as working on the code for piece movement.
+            </br>
+            <br>
+            
+            <h4>Week 3:</h4>
+            <b>Date:</b> 1-27-23<br>
+            <b>Total hours:</b> 8hrs<br>
+            <b>Description of project design efforts:</b><br>
+            This week I focused on planning out future design tasks, creating a demo for our 64x64 LED matrix, and completing design 
+            specifications necessary for the software overview of Engineer’s Chess. 
+            </br><br>
+            In order to plan out how future design tasks could be achieved, I did research to remind myself how I had accomplished 
+            design goals in the past. I reviewed previous projects that utilized similar hardware and software. For example, I looked 
+            over the code from my ECE 362 mini-project in order to refresh my memory on the operation of the STM32 family of 
+            microcontrollers, as well as how to best interface with devices like the LED matrix and the LCD text displays we plan 
+            on using in the future through methods like GPIO and SPI. I was able to gather valuable information that will make 
+            proceeding with Engineer’s Chess much more feasible.
+            </br><br>
+            For the software overview, I designed a flowchart detailing software that will control the path that user input takes 
+            as it goes from the input computer to being reflected on the display. That flowchart can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Voice Input Flowchart.png" width = 400px height = auto></img></p>
+            </br><br>
+            I also created a state machine for the microcontroller that will be operating the displays and receiving input from 
+            the voice command processing computer. That state machine diagram is seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/State Machine.png" width = 400px height = auto></img></p>
+            </br><br>
+            My final major contribution to the software overview was a design for the packet format for data to be sent from 
+            the voice command processing computer for the microcontroller. That packet format is seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Move Packet.png" width = 400px height = auto></img></p>
+            </br><br>
+            As previously mentioned, I also put in a considerable amount of time designing a demo for the LED matrix we will 
+            be using as a display for Engineer’s Chess. I settled on using GPIO to connect output pins of our microcontroller 
+            to the input of the LED Matrix, which would send display information to the matrix microcontroller. There were a 
+            total of fourteen signals that had to be modified in order to control the LED matrix. Those signals, along with 
+            two locations for a ground reference, are seen in the pinout displayed below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Pinout.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            The matrix relies heavily on multiplexing, so only two lines of LEDs are on at a time: one in the top half of the 
+            matrix and one in the bottom half of the matrix. The line to be displayed is selected using the A, B, C, D, and E 
+            pins as a binary row selector. For example, outputting A = 0, B = 1, C = 1, D = 0, and E = 1 would mean that row 
+            22 and row 54 would be modified. Each pixel is modified by changing the value of the R1, G1, B1, R2, G2, and B2 
+            signals. R1, G1, and B1 control the red, green, and blue LEDs in each pixel of the upper row and R2, G2, and B2 
+            control the pixels of the lower row. After each signal is sent, the CLK signal must be pulsed to tell the LED 
+            matrix to read the data. Once each pixel of the row has been displayed, setting LAT and OE high will display the 
+            row. This is done continuously at a high frequency to produce a smooth display. For this demo, I focused on just 
+            creating the chessboard, and the resulting demo is seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Chessboard.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            The next steps for the LED display are to create a pixel design for each chess piece and display them on the 
+            board as well, along with purchasing voltage shifters to ensure that input signals to the LED matrix reach the 
+            threshold voltage at all points of operation.
+            </br><br>
+
+            <h4>Weeks 1-2:</h4>
+            <b>Date:</b> 1-20-2023<br>
+            <b>Total hours:</b> 8 hours <br>
+            <b>Description of project design efforts:</b><br>
+            This week was mostly spent on research, design theory and the final determination of what Engineer’s Chess would do. In my part of 
+            this, I spent time contributing to the Final Design Proposal assignment by completing the Project Description section, as well as 
+            reviewing and making minor contributions to other sections. I also spent time organizing a meeting to determine what parts we would 
+            use in our project. In that meeting, we determined a basic design plan for Engineer’s Chess, and the parts we would need to fulfill 
+            that plan. The project will have one secondary computer, a microphone, several buttons, two mirrored LCD screens, and an LED matrix. 
+            </br><br>
+            After this meeting, I researched the best LED matrix to use for our designs. I eventually settled on the Adafruit 3mm 64x64 LED Matrix 
+            seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/Adafruit64x643mmLEDMatrix.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            source: https://www.adafruit.com/product/4732
+            </br><br>
+            I chose an Adafruit matrix because multiple team members have experience using Adafruit LED modules, so there shouldn’t 
+            be too many problems getting it to work properly. I chose the 64x64 LED version so that we could have adequate resolution 
+            to display both our chess board and chess pieces. Finally, I decided on the 3mm version instead of cheaper alternatives so 
+            that we would have a bigger LED matrix, making our chess board display bigger.
+            </br><br>
+            I also completed tasks for the Functional Specification assignment. I completed the functional description and described 
+            the final details of what Engineer’s Chess will allow the users to do. I then worked to define the electronics constraints 
+            using the parts I had decided on earlier, as well as new ideas that we as a team developed between the two tasks.
+            </br><br>
+            Finally, I spent some time defining the economic constraints. I researched prices for similar chess sets. I decided to 
+            focus on both chess sets that used a large amount of electronics and chess sets that had some hook or theme that made them 
+            different from other chess sets, just like how Engineer’s Chess has the hook of being voice-activated. I used the two chess 
+            sets pictured below as examples to build a price range for our product.
+            </br><br>
+            <p><img src="Team/progress/img/kline/ElectronicChessSet.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            source: https://www.chesshouse.com/products/dgt-smartboard?msclkid=adccfeb8298815c822069d7076542465&utm_source=bing&utm_medium=cpc&utm_campaign=0.1+AMG+Shopping+051419&utm_term=4577473068832057&utm_content=All+Products
+            </br><br>
+            </br><br>
+            <p><img src="Team/progress/img/kline/EgyptianThemedChessSet.jpg" width = 400px height = auto></img></p>
+            </br><br>
+            source: https://g8central.com/products/metal-collectible-chess-set-egyptian?variant=39392136724576&utm_medium=cpc&utm_source=bing&utm_campaign=Bing%2BShopping
+            </br><br>
+            My final task this week was to work on the block diagram for Engineer's Chess. I looked at the major components of the project 
+            and used my knowledge of them to determine how best to lay out the project. The block diagram I settled on can be seen below.
+            </br><br>
+            <p><img src="Team/progress/img/kline/FunctionalBlockDiagram.png"></img></p>
+            </br><br>
+
+            
+                      
+        </div>
+	
+		<!-- Instantiate global footer. Any changes to the footer should be made through the top-level file "footer.html" -->
+		<div id="footer"></div>
+    </div>
+</div>
+
+<!--JS-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-migrate-1.1.1.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#header").load("header.html");
+	$("#menu").load("navbar.html");
+	$("#footer").load("footer.html");
+});
+</script>
+</body>
+</html>
